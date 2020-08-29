@@ -17,13 +17,11 @@
         <small
           v-if="$v.email.$dirty && !$v.email.required"
           class="helper-text invalid"
-          >Поле e-mail не должно быть пустым</small
-        >
+        >Поле e-mail не должно быть пустым</small>
         <small
           v-else-if="$v.email.$dirty && !$v.email.email"
           class="helper-text invalid"
-          >Введите корректный e-mail
-        </small>
+        >Введите корректный e-mail</small>
       </div>
       <div class="input-field">
         <input
@@ -40,14 +38,11 @@
         <small
           class="helper-text invalid"
           v-if="$v.password.$dirty && !$v.password.required"
-          >Введите пароль</small
-        >
-        <small
-          class="helper-text invalid"
-          v-else-if="$v.password.$dirty && !$v.password.minLength"
-          >Пароль должен быть
-          {{ $v.password.$params.minLength.min }} символов</small
-        >
+        >Введите пароль</small>
+        <small class="helper-text invalid" v-else-if="$v.password.$dirty && !$v.password.minLength">
+          Пароль должен быть
+          {{ $v.password.$params.minLength.min }} символов
+        </small>
       </div>
       <div class="input-field">
         <input
@@ -57,11 +52,7 @@
           :class="{ invalid: $v.name.$dirty && !$v.name.required }"
         />
         <label for="name">Имя</label>
-        <small
-          v-if="$v.name.$dirty && !$v.name.required"
-          class="helper-text invalid"
-          >Введите имя</small
-        >
+        <small v-if="$v.name.$dirty && !$v.name.required" class="helper-text invalid">Введите имя</small>
       </div>
       <p>
         <label>
@@ -107,7 +98,7 @@ export default {
     agree: { checked: (v) => v },
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
@@ -117,10 +108,12 @@ export default {
         password: this.password,
         name: this.name,
       };
-
-      console.log(formData);
-
-      this.$router.push("./");
+      try {
+        await this.$store.dispatch("register", formData);
+        this.$router.push("./");
+      } catch (err) {
+        console.error(err);
+      }
     },
   },
 };

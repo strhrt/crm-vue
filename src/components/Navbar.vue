@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "Navbar",
   data: () => ({
@@ -43,7 +44,9 @@ export default {
     dropdown: null,
   }),
   methods: {
-    logout() {
+    ...mapActions(["logout"]),
+    async logout() {
+      await this.$store.dispatch("logout");
       console.log("logout");
       this.$router.push("/login?message=logout");
     },
@@ -58,7 +61,6 @@ export default {
     });
   },
   beforeDestroy() {
-    console.log("before destroy");
     clearInterval(this.interval);
     if (this.dropdown && this.dropdown.destroy) {
       this.dropdown.destroy();
