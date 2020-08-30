@@ -13,7 +13,7 @@ export default {
         throw err;
       }
     },
-    async register({ dispatch }, { email, password, name }) {
+    async register({ dispatch, commit }, { email, password, name }) {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
         const uid = await dispatch("getUserId");
@@ -33,8 +33,9 @@ export default {
       const user = firebase.auth().currentUser;
       return user ? user.uid : null;
     },
-    async logout() {
+    async logout({ commit }) {
       await firebase.auth().signOut();
+      await commit("clearInfo");
     },
   },
   mutations: {},
