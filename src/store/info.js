@@ -27,7 +27,7 @@ export default {
           .database()
           .ref(`/users/${uid}/info`)
           .update(updateData);
-        commit("setInfo", { updateData });
+        commit("setInfo", updateData);
       } catch (err) {
         commit("setError", err);
         throw err;
