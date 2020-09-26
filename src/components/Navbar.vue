@@ -5,13 +5,18 @@
         <a href="#" @click.prevent="$emit('click')">
           <i class="material-icons black-text">dehaze</i>
         </a>
-        <span class="black-text">{{date |date('datetime')}}</span>
+        <span class="black-text">{{ date | date("datetime") }}</span>
       </div>
 
       <ul class="right hide-on-small-and-down">
         <li>
-          <a class="dropdown-trigger black-text" href="#" data-target="dropdown" ref="dropdown">
-            USER NAME
+          <a
+            class="dropdown-trigger black-text"
+            href="#"
+            data-target="dropdown"
+            ref="dropdown"
+          >
+            {{ info.info.name }}
             <i class="material-icons right">arrow_drop_down</i>
           </a>
 
@@ -35,7 +40,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "Navbar",
   data: () => ({
@@ -43,11 +48,11 @@ export default {
     interval: null,
     dropdown: null,
   }),
+  computed: mapState(["info"]),
   methods: {
     ...mapActions(["logout"]),
     async logout() {
       await this.$store.dispatch("logout");
-      console.log("logout");
       this.$router.push("/login?message=logout");
     },
   },
@@ -69,5 +74,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
