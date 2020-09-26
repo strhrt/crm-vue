@@ -17,11 +17,13 @@
         <small
           v-if="$v.email.$dirty && !$v.email.required"
           class="helper-text invalid"
-        >Поле e-mail не должно быть пустым</small>
+          >Поле e-mail не должно быть пустым</small
+        >
         <small
           v-else-if="$v.email.$dirty && !$v.email.email"
           class="helper-text invalid"
-        >Введите корректный e-mail</small>
+          >Введите корректный e-mail</small
+        >
       </div>
       <div class="input-field">
         <input
@@ -38,8 +40,12 @@
         <small
           class="helper-text invalid"
           v-if="$v.password.$dirty && !$v.password.required"
-        >Введите пароль</small>
-        <small class="helper-text invalid" v-else-if="$v.password.$dirty && !$v.password.minLength">
+          >Введите пароль</small
+        >
+        <small
+          class="helper-text invalid"
+          v-else-if="$v.password.$dirty && !$v.password.minLength"
+        >
           Пароль должен быть
           {{ $v.password.$params.minLength.min }} символов
         </small>
@@ -51,8 +57,13 @@
           v-model.trim="name"
           :class="{ invalid: $v.name.$dirty && !$v.name.required }"
         />
-        <label for="name">Имя</label>
-        <small v-if="$v.name.$dirty && !$v.name.required" class="helper-text invalid">Введите имя</small>
+        <label for="name">{{ "Name" | localize }}</label>
+        <small
+          v-if="$v.name.$dirty && !$v.name.required"
+          class="helper-text invalid"
+        >
+          {{ "Message_EnterName" | localize }}
+        </small>
       </div>
       <p>
         <label>

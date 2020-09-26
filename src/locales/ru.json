@@ -1,5 +1,5 @@
 {
-  "ProfileTitle": "Профиль",
+  "Profile": "Профиль",
   "Name": "Имя",
   "Message_EnterName": "Введите имя",
   "Update": "Обновить",
@@ -7,5 +7,33 @@
   "Menu_History": "История",
   "Menu_Planning": "Планирование",
   "Menu_NewRecord": "Новая запись",
-  "Menu_Categories": "Категории"
+  "Menu_Categories": "Категории",
+  "Create": "Создать",
+  "Title": "Название",
+  "Message_EnterCategory": "Введите название категории",
+  "Limit": "Лимит",
+  "Message_MinValue": "Минимальная величина",
+  "Logout": "Выйти",
+  "Edit": "Редактировать",
+  "Message_chooseCategory": "Выберите категорию",
+  "CurrencyRate": "Курс валют",
+  "Currency": "Валюта",
+  "Date": "Дата",
+  "Rate": "Курс",
+  "CurrencyAccount": "Счет в валюте",
+  "Amount": "Сумма",
+  "Category": "Категория",
+  "Categories": "Категории",
+  "Type": "Тип",
+  "Open": "Открыть",
+  "Tooltip_OpenRecord": "Посмотреть запись",
+  "Message_NoCategories": "Категорий пока что нет",
+  "History": "История",
+  "Description": "Описание",
+  "Record": "Запись",
+  "Message_DoesntExist": "не существует",
+  "NewRecord": "Новая запись",
+  "Bill": "Счет"
 }
+
+// {{'History'|localize}}

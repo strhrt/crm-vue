@@ -2,15 +2,17 @@
   <div class="col s12 m6">
     <div>
       <div class="page-subtitle">
-        <h4>Редактировать</h4>
+        <h4>{{ "Edit" | localize }}</h4>
       </div>
 
       <form @submit.prevent="submitHandler">
         <div class="input-field">
           <select ref="select" v-model="current">
-            <option v-for="cat of categories" :key="cat.id" :value="cat.id">{{cat.title}}</option>
+            <option v-for="cat of categories" :key="cat.id" :value="cat.id">{{
+              cat.title
+            }}</option>
           </select>
-          <label>Выберите категорию</label>
+          <label>{{ "Message_chooseCategory" | localize }}</label>
         </div>
 
         <div class="input-field">
@@ -18,13 +20,12 @@
             id="name"
             type="text"
             v-model="title"
-            :class="{invalid: $v.title.$dirty && !$v.title.required}"
+            :class="{ invalid: $v.title.$dirty && !$v.title.required }"
           />
-          <label for="name">Название</label>
-          <span
-            v-if="$v.title.$dirty && !$v.title.required"
-            class="helper-text"
-          >Введите название категории</span>
+          <label for="name">{{ "Title" | localize }}</label>
+          <span v-if="$v.title.$dirty && !$v.title.required" class="helper-text"
+            >{{ "Message_EnterCategory" | localize }}
+          </span>
         </div>
 
         <div class="input-field">
@@ -32,17 +33,17 @@
             id="limit"
             type="number"
             v-model.number="limit"
-            :class="{invalid: $v.limit.$dirty && !$v.limit.minValue}"
+            :class="{ invalid: $v.limit.$dirty && !$v.limit.minValue }"
           />
-          <label for="limit">Лимит</label>
-          <span
-            v-if="$v.limit.$dirty && !$v.limit.minValue"
-            class="helper-text"
-          >Минимальная величина {{$v.limit.$params.minValue.min}}</span>
+          <label for="limit">{{ "Limit" | localize }}</label>
+          <span v-if="$v.limit.$dirty && !$v.limit.minValue" class="helper-text"
+            >{{ "Message_MinValue" | localize }}
+            {{ $v.limit.$params.minValue.min }}</span
+          >
         </div>
 
         <button class="btn waves-effect waves-light" type="submit">
-          Обновить
+          {{ "Update" | localize }}
           <i class="material-icons right">send</i>
         </button>
       </form>
@@ -115,5 +116,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
