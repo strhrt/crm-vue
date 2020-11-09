@@ -46,6 +46,7 @@
 
 <script>
 import { required, minValue } from "vuelidate/lib/validators";
+import { mapActions } from "vuex";
 
 export default {
   name: "CreateCategory",
@@ -61,6 +62,7 @@ export default {
     M.updateTextFields();
   },
   methods: {
+    ...mapActions(["createCategory"]),
     async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch();
@@ -68,7 +70,7 @@ export default {
       }
 
       try {
-        const category = await this.$store.dispatch("createCategory", {
+        const category = await this.createCategory({
           title: this.title,
           limit: this.limit,
         });
@@ -82,5 +84,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

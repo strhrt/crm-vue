@@ -1,8 +1,6 @@
 import firebase from "firebase/app";
 
 export default {
-  state: {},
-  getters: {},
   actions: {
     async login({ dispatch, commit }, { email, password }) {
       try {
@@ -38,5 +36,4 @@ export default {
       await commit("clearInfo");
     },
   },
-  mutations: {},
 };

@@ -1,8 +1,6 @@
 import firebase from "firebase/app";
 
 export default {
-  state: {},
-  getters: {},
   actions: {
     async fetchCategories({ commit, dispatch }) {
       try {
@@ -70,5 +68,4 @@ export default {
       }
     },
   },
-  mutations: {},
 };

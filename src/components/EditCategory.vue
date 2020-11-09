@@ -8,9 +8,9 @@
       <form @submit.prevent="submitHandler">
         <div class="input-field">
           <select ref="select" v-model="current">
-            <option v-for="cat of categories" :key="cat.id" :value="cat.id">{{
-              cat.title
-            }}</option>
+            <option v-for="cat of categories" :key="cat.id" :value="cat.id">
+              {{ cat.title }}
+            </option>
           </select>
           <label>{{ "Message_chooseCategory" | localize }}</label>
         </div>
@@ -53,6 +53,7 @@
 
 <script>
 import { required, minValue } from "vuelidate/lib/validators";
+import { mapActions } from "vuex";
 
 export default {
   name: "EditCategory",
@@ -107,7 +108,7 @@ export default {
           title: this.title,
           limit: this.limit,
         };
-        await this.$store.dispatch("updateCategory", categoryData);
+        await this.updateCategory(categoryData);
         this.$message("Категория успешно обновлена");
         this.$emit("updated", categoryData);
       } catch (err) {}

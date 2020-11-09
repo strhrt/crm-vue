@@ -1,9 +1,6 @@
 import firebase from "firebase/app";
 
 export default {
-  state: {},
-  getters: {},
-  mutations: {},
   actions: {
     async createRecord({ dispatch, commit }, record) {
       try {
