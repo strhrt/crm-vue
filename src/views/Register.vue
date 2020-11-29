@@ -17,12 +17,12 @@
         <small
           v-if="$v.email.$dirty && !$v.email.required"
           class="helper-text invalid"
-          >Поле e-mail не должно быть пустым</small
+          > Поле e-mail не должно быть пустым </small
         >
         <small
           v-else-if="$v.email.$dirty && !$v.email.email"
           class="helper-text invalid"
-          >Введите корректный e-mail</small
+          > Введите корректный e-mail </small
         >
       </div>
       <div class="input-field">
@@ -130,4 +130,3 @@ export default {
 };
 </script>
 
-<style></style>

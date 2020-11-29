@@ -11,9 +11,7 @@
     <form v-else class="form" @submit.prevent="submitHandler">
       <div class="input-field">
         <select ref="select" v-model="category">
-          <option v-for="c in categories" :key="c.id" :value="c.id">{{
-            c.title
-          }}</option>
+          <option v-for="c in categories" :key="c.id" :value="c.id"> {{c.title }} </option>
         </select>
         <label>Выберите категорию</label>
       </div>
@@ -53,7 +51,7 @@
         />
         <label for="amount">Сумма</label>
         <span v-if="$v.amount.$dirty && !$v.amount.minValue" class="helper-text"
-          >Минимальная величина {{ $v.amount.$params.minValue.min }}</span
+          > Минимальная величина {{ $v.amount.$params.minValue.min }} </span
         >
       </div>
 
@@ -70,7 +68,7 @@
         <span
           v-if="$v.description.$dirty && !$v.description.required"
           class="helper-text"
-          >Введите описание</span
+          >  Введите описание </span
         >
       </div>
 
@@ -168,4 +166,3 @@ export default {
 };
 </script>
 
-<style></style>

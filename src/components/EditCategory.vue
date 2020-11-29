@@ -91,11 +91,7 @@ export default {
     M.updateTextFields();
     this.select = M.FormSelect.init(this.$refs.select);
   },
-  beforeDestroy() {
-    if (this.select && this.select.destroy) {
-      this.select.destroy();
-    }
-  },
+  
   methods: {
     ...mapActions(['updateCategory']),
     async submitHandler() {
@@ -115,7 +111,11 @@ export default {
       } catch (err) {console.error(err)}
     },
   },
+  beforeDestroy() {
+    if (this.select && this.select.destroy) {
+      this.select.destroy();
+    }
+  },
 };
 </script>
 
-<style></style>

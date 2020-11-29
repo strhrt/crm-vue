@@ -52,13 +52,7 @@ export default {
     dropdown: null,
   }),
   computed: mapState(["info"]),
-  methods: {
-    ...mapActions(["logout"]),
-    async logout() {
-      await this.$store.dispatch("logout");
-      this.$router.push("/login?message=logout");
-    },
-  },
+ 
   mounted() {
     this.interval = setInterval(() => {
       this.date = new Date();
@@ -67,6 +61,13 @@ export default {
     this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
       constrainWidth: true,
     });
+  },
+   methods: {
+    ...mapActions(["logout"]),
+    async logout() {
+      await this.$store.dispatch("logout");
+      this.$router.push("/login?message=logout");
+    },
   },
   beforeDestroy() {
     clearInterval(this.interval);
