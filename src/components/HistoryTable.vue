@@ -18,9 +18,7 @@
         <td>{{ record.date | date("datetime") }}</td>
         <td>{{ record.categoryName }}</td>
         <td>
-          <span class="white-text badge" :class="[record.typeClass]"> {{
-            record.typeText
-          } }</span>
+          <span class="white-text badge" :class="[record.typeClass]"> {{ record.typeText }}</span>
         </td>
         <td>
           <button

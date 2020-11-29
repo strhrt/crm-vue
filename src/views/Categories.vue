@@ -22,8 +22,6 @@
   </div>
 </template>
 <script>
-// import CreateCategory from "@/components/CreateCategory";
-// import EditCategory from "@/components/EditCategory";
 
 export default {
   name: "categories",

@@ -6,11 +6,10 @@
   </div>
 </template>
 <script>
-import AuthLayout from "@/layouts/AuthLayout.vue";
-import MainLayout from "@/layouts/MainLayout.vue";
 
 export default {
-  components: { AuthLayout, MainLayout },
+  components: { AuthLayout: () => import( "@/layouts/AuthLayout.vue"),
+   MainLayout: () => import("@/layouts/MainLayout.vue") },
   computed: {
     layout() {
       return (this.$route.meta.layout || "auth") + "-layout";
