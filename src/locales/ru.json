@@ -33,6 +33,9 @@
   "Record": "Запись",
   "Message_DoesntExist": "не существует",
   "NewRecord": "Новая запись",
-  "Bill": "Счет"
-}
+  "Bill": "Счет",
+   "HistoryRecord":"История записей",
+   "Message_NoRecords": "Записей нет"
 
+
+}

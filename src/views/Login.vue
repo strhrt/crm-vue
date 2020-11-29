@@ -17,12 +17,12 @@
         <small
           v-if="$v.email.$dirty && !$v.email.required"
           class="helper-text invalid"
-          >Поле e-mail не должно быть пустым</small
+          > Поле e-mail не должно быть пустым </small
         >
         <small
           v-else-if="$v.email.$dirty && !$v.email.email"
           class="helper-text invalid"
-          >Введите корректный e-mail
+          > Введите корректный e-mail
         </small>
       </div>
       <div class="input-field">
@@ -40,13 +40,13 @@
         <small
           class="helper-text invalid"
           v-if="$v.password.$dirty && !$v.password.required"
-          >Введите пароль</small
+          > Введите пароль </small
         >
         <small
           class="helper-text invalid"
           v-else-if="$v.password.$dirty && !$v.password.minLength"
-          >Пароль должен быть
-          {{ $v.password.$params.minLength.min }} символов</small
+          > Пароль должен быть
+          {{ $v.password.$params.minLength.min }} символов </small
         >
       </div>
     </div>

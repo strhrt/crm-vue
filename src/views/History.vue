@@ -1,15 +1,15 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{'HistoryRecord' | localize}}</h3>
     </div>
 
     <div class="history-chart">
-      <canvas ref="canvas"></canvas>
+      <canvas ref="canvas"/>
     </div>
     <Loader v-if="loading" />
     <p class="center" v-else-if="!records.length">
-      Записей нет
+      {{'Message_NoRecords' | localize}}
       <router-link to="/record">Добавить запись</router-link>
     </p>
     <section v-else>
@@ -29,14 +29,14 @@
 
 <script>
 import paginationMixin from "@/mixins/pagination.mixin";
-import HistoryTable from "@/components/HistoryTable";
+// import HistoryTable from ;
 import { Pie } from "vue-chartjs";
 
 export default {
   name: "History",
   components: {
-    HistoryTable,
-  },
+    HistoryTable: ()=> import("@/components/HistoryTable")
+   },
   extends: Pie,
   mixins: [paginationMixin],
   data: () => ({
@@ -101,4 +101,3 @@ export default {
 };
 </script>
 
-<style></style>

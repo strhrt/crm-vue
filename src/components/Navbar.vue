@@ -24,7 +24,7 @@
             <li>
               <router-link to="/profile" class="black-text">
                 <i class="material-icons">account_circle</i
-                >{{ "Profile" | localize }}
+                > {{ "Profile" | localize }}
               </router-link>
             </li>
             <li class="divider" tabindex="-1"></li>
@@ -43,6 +43,7 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+
 export default {
   name: "Navbar",
   data: () => ({
@@ -76,4 +77,3 @@ export default {
 };
 </script>
 
-<style></style>

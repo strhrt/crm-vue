@@ -22,14 +22,14 @@
   </div>
 </template>
 <script>
-import CreateCategory from "@/components/CreateCategory";
-import EditCategory from "@/components/EditCategory";
+// import CreateCategory from "@/components/CreateCategory";
+// import EditCategory from "@/components/EditCategory";
 
 export default {
   name: "categories",
   components: {
-    CreateCategory,
-    EditCategory,
+    CreateCategory: () => import("@/components/CreateCategory"),
+    EditCategory: ()=> import("@/components/EditCategory")
   },
   data: () => ({
     categories: [],

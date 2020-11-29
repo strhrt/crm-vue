@@ -16,14 +16,14 @@
 </template>
 
 <script>
-import HomeBill from "@/components/HomeBill";
-import HomeCurrency from "@/components/HomeCurrency";
+// import HomeBill from "@/components/HomeBill";
+// import HomeCurrency from "@/components/HomeCurrency";
 
 export default {
   name: "Home",
   components: {
-    HomeBill,
-    HomeCurrency,
+    HomeBill: () => import( "@/components/HomeBill"),
+    HomeCurrency:() => import( "@/components/HomeCurrency"),
   },
   data: () => ({
     loading: true,
