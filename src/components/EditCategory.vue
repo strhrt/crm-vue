@@ -24,7 +24,7 @@
           />
           <label for="name">{{ "Title" | localize }}</label>
           <span v-if="$v.title.$dirty && !$v.title.required" class="helper-text"
-            >{{ "Message_EnterCategory" | localize }}
+            > {{ "Message_EnterCategory" | localize }}
           </span>
         </div>
 
@@ -97,6 +97,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['updateCategory']),
     async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch();
@@ -111,7 +112,7 @@ export default {
         await this.updateCategory(categoryData);
         this.$message("Категория успешно обновлена");
         this.$emit("updated", categoryData);
-      } catch (err) {}
+      } catch (err) {console.error(err)}
     },
   },
 };
